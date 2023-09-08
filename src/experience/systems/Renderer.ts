@@ -1,4 +1,4 @@
-import { WebGLRenderer } from "three";
+import { PCFShadowMap, PCFSoftShadowMap, WebGLRenderer } from "three";
 import { getDevicePixelRatio } from "../utils";
 
 export class Renderer extends WebGLRenderer {
@@ -10,6 +10,9 @@ export class Renderer extends WebGLRenderer {
     this.domElement.style.position = "absolute";
     this.domElement.style.zIndex = "1";
     this.domElement.style.top = "0  ";
+
+    this.shadowMap.enabled = true;
+    this.shadowMap.type = PCFSoftShadowMap;
 
     container.addEventListener("resize", this.setRenderSize);
   }
