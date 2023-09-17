@@ -1,9 +1,13 @@
-import { PCFShadowMap, PCFSoftShadowMap, WebGLRenderer } from "three";
+import { PCFSoftShadowMap, WebGLRenderer } from "three";
 import { getDevicePixelRatio } from "../utils";
 
 export class Renderer extends WebGLRenderer {
   constructor(private container: HTMLElement) {
-    super({ antialias: true, powerPreference: "high-performance", alpha: true });
+    super({
+      antialias: true,
+      powerPreference: "high-performance",
+      alpha: true,
+    });
     this.setRenderSize();
     container.append(this.domElement);
     this.domElement.style.pointerEvents = "none";
